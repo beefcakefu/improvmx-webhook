@@ -1,0 +1,11 @@
+Options -Indexes
+
+# Check REQUEST_METHOD and HTTP_USER_AGENT to filter out some bad requests.
+# Redirect filtered requests to `webhook.php`.
+
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{HTTP_USER_AGENT} python-requests
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) /webhook.php

@@ -1,0 +1,7 @@
+{
+    "name": "beefcake/improvmx-webhook",
+    "require": {
+        "php": ">=7.4",
+        "aws/aws-sdk-php": "^3.234"
+    }
+}

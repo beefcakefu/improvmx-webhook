@@ -1,0 +1,38 @@
+;<?php
+;die();
+;/*
+
+; If `anybody` is set to `false`, only accept messages for `mailboxes`. If set
+; to `true`, `regex` is used to check for sane mailbox values before processing.
+anybody = false
+
+; `mailboxes` array define which paths to accept messages at, such as
+; https://improvmx.example.com/[tom]. Please ensure mailbox list matches
+; settings in ImprovMX aliases.
+mailboxes[] = "tom"
+mailboxes[] = "dick"
+mailboxes[] = "catchall"
+
+; Regex must match, or script will terminate. Amend as required.
+regex = "/^[a-z0-9_\-\.\+]+$/i"
+
+; Maximum POST request size to process, in MBs. Base64 encoding applied to
+; attachments roughly increases size to 1.35x. Default value of 68 MB should be
+; just over ImprovMX's limit of 50 MB.
+limit = 68
+
+; Details about AWS S3 resource. It is expected that access key details are
+; present in `~/.aws/credentials` and `profile` is as defined there.
+region = "ap-southeast-1"
+profile = "improvmx_webhook"
+bucket = "improvmx-webhook-bucket"
+
+; Timezone to be used in S3 bucket.
+timezone = "Asia/Singapore"
+
+; Whether to log peak RAM usage and POST request size for each message
+; processed.
+logging = true
+logfile = "~/tmp/webhook.log"
+
+;*/
