@@ -91,14 +91,15 @@ Open `settings.ini.php` and make some necessary changes.
 - `profile`: This should match the access key profile name in the `credentials` file above.
 - `bucket`: The name of the bucket to save emails to.
 - `timezone`: Email timestamp is used to create a folder hierachy for uploaded emails in S3. This specifies the timezone that the timestamp should be shown in.
-- `logging`: Whether to log some basic information of each POST request, like the request size and peak memory usage.
+- `logging`: Whether to log some basic information of each POST request, like the request size, peak memory usage and execution time.
 - `logfile`: If `logging` is enabled, the filename to which log entries are written.
 
-And that's it! Use the alias test button in the ImprovMX interface or send the forwarding email address an email to verify everything is working correctly.
+## Profit!
+And that's it! Use the alias test button in the ImprovMX interface or send an email to the forwarding email address to verify everything is working correctly.
 
 ## Additional Customization
 - `/public_html/index.html` is a barebone HTML for visitors to `https://improvmx.example.com`. You may wish to customize it with something more informative.
-- The mailbox and message timestamp are used to create the uploaded email's folder hierachy. For example, if an email to 'tom', timestamped 'Sep 01 2022 14:00:00' is received, it would be uploaded to '/tom/2022/09/01/14:00:00/'. If you wish to customize the upload path, see `webhook.php` line 60.
+- The mailbox and message timestamp are used to create the uploaded email's folder hierachy. For example, if an email to `tom`, timestamped `Sep 01 2022 14:00:00` is received, it would be uploaded to `/tom/2022/09/01/14:00:00/`. If you wish to customize the upload path, see [webhook.php](https://github.com/beefcakefu/improvmx-webhook/blob/f5a8c076dd5b6b2b517e85d31c0a76dd1d6194ec/public_html/webhook.php#L60).
 
 ## Notes
 - To prevent the situation where attachments overwrite themselves if an email contains multiple attachments of the same name, a unique prefix is generated for each attachment.
@@ -112,7 +113,7 @@ And that's it! Use the alias test button in the ImprovMX interface or send the f
 ## Special Note on Security
 This was meant to be a fun weekend project for me, and I accept that it is not 100% secure.
 
-If one's webhook endpoint was exposed, it is possible for a bad actor to spoof the user-agent and spam one's S3 bucket with a tonne of large files. In my mind, if someone found my webhook endpoint, they probably already have my email address and could have spammed me by email already anyway.
+If one's webhook endpoint was exposed, it is possible for a bad actor to spoof the user-agent and spam one's S3 bucket with a tonne of large files. In my mind, if someone found my webhook endpoint, they probably already have my email address and could have spammed me by email anyway.
 
 A possible solution would be to make use of the JSON POST request's `raw_url` attribute and ImprovMX's API key to download the email from ImprovMX's server to ensure it is an authentic, unaltered email as received by ImprovMX. However, I am not considering this at moment as it involves receiving an up-to-68-MB email twice and a complete code rewrite.
 
