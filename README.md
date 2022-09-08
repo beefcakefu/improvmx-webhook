@@ -58,7 +58,7 @@ Emails sent to `tom@example.com`, `dick@example.com` and everyone else are saved
 From the web server command line:
 
     cd ~
-    git clone -b v1.0 https://github.com/beefcakefu/improvmx-webhook.git
+    git clone -b v1.1 https://github.com/beefcakefu/improvmx-webhook.git
     cd improvmx-webhook
     composer update -a
 
