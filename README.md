@@ -106,7 +106,7 @@ And that's it! Use the alias test button in the ImprovMX interface or send an em
 - `rawurlencode()` is applied to message subjects to be used in filenames to prevent unexpected outcome with special characters. To convert it back to something human-readable, use `rawurldecode()` or an [online service](https://www.urldecoder.org/).
 - If there is interest in a query string-style mailbox definition, like `https://example.com/webhook.php?mailbox=[tom]`, it could be looked into.
 
-# Known Issues
+## Known Issues
 - S3 object keys (path + filename) are limited to 1024 bytes.
   I may address this in a future update by truncating longer email subjects / attachment filenames / inline image filenames and perhaps finding a better way to escape unsafe characters than `rawurlencode()`.
 
