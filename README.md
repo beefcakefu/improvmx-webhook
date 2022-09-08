@@ -87,7 +87,7 @@ Open `settings.ini.php` and make some necessary changes.
 - `logfile`: If `logging` is enabled, the filename to which log entries are written.
 
 ### PHP Directives
-For the webhook to function correctly, especially for large emails, some PHP directives will need to be updated. This can be done in a number of ways depending on your platform. A template `php.ini` can be found in `/public_html/php.ini`. Amend as required.
+For the webhook to function correctly, especially for large emails, some PHP directives will need to be updated. This can be done in a number of ways depending on your platform. A template `php.ini` and `.user.ini` can be found in `/public_html/php.ini`. Amend as required.
 
 - `post_max_size=68M`
 - `upload_max_filesize=68M`
