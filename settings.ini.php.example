@@ -33,6 +33,6 @@ timezone = "Asia/Singapore"
 ; Whether to log peak RAM usage and POST request size for each message
 ; processed.
 logging = true
-logfile = "~/tmp/webhook.log"
+logfile = "../webhook.log"
 
 ;*/
