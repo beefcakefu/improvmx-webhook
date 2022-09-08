@@ -54,14 +54,6 @@ Example aliases:
 
 Emails sent to `tom@example.com`, `dick@example.com` and everyone else are saved to S3 under `tom`, `dick` and `catchall` mailboxes respectively. Additionally `tom@gmail.com` receives a copy of emails sent to `tom@example.com`.
 
-### PHP Directives
-For the webhook to function correctly, especially for large emails, some PHP directives will need to be updated. This can be done in a number of ways depending on your platform. A template `php.ini` can be found in `/public_html/php.ini`. Amend as required.
-
-- `post_max_size=68M`
-- `upload_max_filesize=68M`
-- `memory_limit=200M`
-- `max_execution_time=120`
-
 ### Webhook
 From the web server command line:
 
@@ -93,6 +85,14 @@ Open `settings.ini.php` and make some necessary changes.
 - `timezone`: Email timestamp is used to create a folder hierachy for uploaded emails in S3. This specifies the timezone that the timestamp should be shown in.
 - `logging`: Whether to log some basic information of each POST request, like the request size, peak memory usage and execution time.
 - `logfile`: If `logging` is enabled, the filename to which log entries are written.
+
+### PHP Directives
+For the webhook to function correctly, especially for large emails, some PHP directives will need to be updated. This can be done in a number of ways depending on your platform. A template `php.ini` can be found in `/public_html/php.ini`. Amend as required.
+
+- `post_max_size=68M`
+- `upload_max_filesize=68M`
+- `memory_limit=200M`
+- `max_execution_time=120`
 
 ## Profit!
 And that's it! Use the alias test button in the ImprovMX interface or send an email to the forwarding email address to verify everything is working correctly.
